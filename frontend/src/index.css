@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-dark-950 text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(139, 92, 246, 0.05) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.05) 0px, transparent 50%);
+    background-attachment: fixed;
+  }
+}
+
+/* Premium custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-dark-950;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-dark-700 rounded hover:bg-brand-500 transition-colors duration-200;
+}
+
+/* Glassmorphism classes */
+.glass-panel {
+  @apply bg-dark-900/80 backdrop-blur-xl border border-dark-800/70 shadow-2xl;
+}
+
+.glass-card {
+  @apply bg-dark-900/40 backdrop-blur-md border border-dark-800/40 hover:border-brand-500/40 hover:bg-dark-900/60 transition-all duration-300 rounded-xl shadow-lg;
+}
+
+/* Micro-animations */
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: .85; transform: scale(0.98); }
+}
+
+.pulse-hover:hover {
+  animation: pulse-subtle 2s infinite ease-in-out;
+}
+
+/* Calendar customizations to match premium dark theme */
+.fc {
+  --fc-border-color: #1e293b !important;
+  --fc-button-text-color: #f1f5f9 !important;
+  --fc-button-bg-color: #334155 !important;
+  --fc-button-border-color: #1e293b !important;
+  --fc-button-hover-bg-color: #7c3aed !important;
+  --fc-button-hover-border-color: #6d28d9 !important;
+  --fc-button-active-bg-color: #6d28d9 !important;
+  --fc-button-active-border-color: #5b21b6 !important;
+  --fc-today-bg-color: rgba(124, 58, 237, 0.15) !important;
+  --fc-page-bg-color: transparent !important;
+  --fc-neutral-bg-color: transparent !important;
+  --fc-list-event-hover-bg-color: rgba(30, 41, 59, 0.5) !apply;
+  font-family: 'Outfit', sans-serif !important;
+}
+
+.fc-col-header-cell {
+  @apply py-3 bg-dark-900 text-slate-400 border-dark-800 font-medium text-sm uppercase tracking-wider;
+}
+
+.fc-day {
+  @apply transition-colors duration-200;
+}
+
+.fc-event {
+  @apply shadow-md border-0 rounded-lg p-1 font-sans font-medium text-xs cursor-pointer hover:brightness-110 transition-all duration-150;
+}
